@@ -1,11 +1,11 @@
 import React, { InputHTMLAttributes, useCallback } from 'react';
 
-import { cep, cpf } from './masks';
+import { cep, cpf, cardNumber, cardSecurityCode } from './masks';
 
 import './styles.css';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  mask: "cep" | "cpf";
+  mask: "cep" | "cpf" | "cardNumber" | "cardSecurityCode";
   prefix?: string;
 }
 
@@ -17,6 +17,12 @@ const Input: React.FC<InputProps> = ({ mask, prefix,...props}) => {
     }
     if(mask === 'cpf'){
       cpf(e);
+    }
+    if(mask === 'cardNumber'){
+      cardNumber(e);
+    }
+    if(mask === 'cardSecurityCode'){
+      cardSecurityCode(e);
     }
 
   }, [mask])

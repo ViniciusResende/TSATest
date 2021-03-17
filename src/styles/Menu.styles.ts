@@ -7,7 +7,12 @@ export const Wrapper = styled.div`
     align-items: center;
     justify-content: flex-end;
 
+    width: 100%;
+
+    position: fixed;
+
     background: #17222D;
+    z-index: 5;
   }
 
   div.menuContainer div.outCircle{
@@ -20,6 +25,7 @@ export const Wrapper = styled.div`
 
     width: 0.5rem;
     height: 0.5rem;
+    transition: all 0.4s ease;
   }
 
   div.menuContainer div.outCircle div.inCircle{
@@ -28,6 +34,7 @@ export const Wrapper = styled.div`
 
     width: 0.25rem;
     height: 0.25rem;
+    transition: all 0.4s ease;
   }
 
   div.menuContainer p{

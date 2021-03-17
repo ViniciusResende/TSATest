@@ -1,25 +1,28 @@
-import React, {useState} from 'react'
+import React, {useContext} from 'react'
+import { AppContext } from '../contexts/AppContext';
 import { Wrapper } from '../styles/Menu.styles';
 
 const Menu: React.FC = () => {
-  const [isListInDisplay, setIsListInDisplay] = useState(false);
-  const [isRegisterInDisplay, setIsRegisterInDisplay] = useState(true);
-
-  const menuListHandler = () => {
-    setIsListInDisplay(true);
-    setIsRegisterInDisplay(false);
-  }
-
-  const menuRegisterHandler = () => {
-    setIsListInDisplay(false);
-    setIsRegisterInDisplay(true);
-  }
+  const {
+    isListInDisplay,
+    isRegisterInDisplay,
+    menuListHandler,
+    menuRegisterHandler,
+  } = useContext(AppContext);
   return (
     <Wrapper>  
       <div className="menuContainer">
-        {isListInDisplay && <div className="outCircle"><div className="inCircle"></div></div>}
+        {isListInDisplay ? (
+          <div className="outCircle" style={{opacity: 1}}><div className="inCircle"></div></div>
+        ): (
+          <div className="outCircle" style={{opacity: 0}}><div className="inCircle"></div></div>
+        )}
         <p onClick={menuListHandler}>Lista</p>
-        {isRegisterInDisplay && <div className="outCircle"><div className="inCircle"></div></div>}
+        {isRegisterInDisplay ? (
+          <div className="outCircle" style={{opacity: 1}}><div className="inCircle"></div></div>
+        ): (
+          <div className="outCircle" style={{opacity: 0}}><div className="inCircle"></div></div>
+        )}
         <p onClick={menuRegisterHandler}>Cadastro</p>
       </div>
     </Wrapper>
