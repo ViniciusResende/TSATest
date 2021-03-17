@@ -2,7 +2,7 @@
 
 ## Instalando pacotes
 
-No diretório do porjeto você pode rodar:
+No diretório do projeto você pode rodar:
 
 ### `yarn` ou `npm install`
 
